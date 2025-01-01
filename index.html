@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ransomware Simulation</title>
+    <style>
+        body {
+            background-color: black;
+            color: red;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 100px;
+        }
+        h1 {
+            font-size: 3em;
+        }
+        p {
+            font-size: 1.2em;
+        }
+    </style>
+    <meta name="flag" content="FLAG{Inspect_the_Code}">
+</head>
+<body>
+    <h1>Oops! Your files have been encrypted!</h1>
+    <p>Pay 1 BTC to the address below to retrieve your files.</p>
+    <p>Bitcoin Address: 1FakeBTCAddress12345</p>
+    <p>Note: You have 48 hours before your files are permanently deleted!</p>
+    <script>
+        // The flag is hidden in plain sight! Look carefully.
+        var ransomDetails = {
+            bitcoinAddress: "1FakeBTCAddress12345",
+            flag: "IGNITE{JavaScript_Obfuscation_Fun}"
+        };
+    </script>
+</body>
+</html>

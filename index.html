@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ransomware Simulation</title>
+    <title>YOU GOT HIT WITH Ransomware!</title>
     <style>
         body {
             background-color: black;
@@ -18,6 +18,13 @@
         p {
             font-size: 1.2em;
         }
+        #timer {
+            font-size: 2em;
+            margin-top: 20px;
+        }
+        #deactivation {
+            margin-top: 20px;
+        }
     </style>
     <meta name="flag" content="FLAG{Inspect_the_Code}">
 </head>
@@ -26,12 +33,37 @@
     <p>Pay 1 BTC to the address below to retrieve your files.</p>
     <p>Bitcoin Address: 1FakeBTCAddress12345</p>
     <p>Note: You have 48 hours before your files are permanently deleted!</p>
+    <div id="timer">10:00</div>
+    <div id="deactivation">
+        <input type="text" id="code" placeholder="Enter deactivation code">
+        <button onclick="checkCode()">Submit</button>
+    </div>
+    <p id="flag" style="display:none;">IGNITE{JavaScript_Obfuscation_Fun}</p>
     <script>
-        // The flag is hidden in plain sight! Look carefully.
-        var ransomDetails = {
-            bitcoinAddress: "1FakeBTCAddress12345",
-            flag: "IGNITE{JavaScript_Obfuscation_Fun}"
-        };
+        // Timer countdown
+        var timeLeft = 600;
+        var timer = document.getElementById('timer');
+        var countdown = setInterval(function() {
+            var minutes = Math.floor(timeLeft / 60);
+            var seconds = timeLeft % 60;
+            seconds = seconds < 10 ? '0' + seconds : seconds;
+            timer.textContent = minutes + ':' + seconds;
+            timeLeft--;
+            if (timeLeft < 0) {
+                clearInterval(countdown);
+                timer.textContent = 'Time is up!';
+            }
+        }, 1000);
+
+        // Check deactivation code
+        function checkCode() {
+            var code = document.getElementById('code').value;
+            if (code === 'uifbq39uru4f248hf1i32d83') {
+                document.getElementById('flag').style.display = 'block';
+            } else {
+                alert('Incorrect code. Try again.');
+            }
+        }
     </script>
 </body>
 </html>

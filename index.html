@@ -40,7 +40,7 @@
     <p id="flag" style="display:none;"></p>
     
     <script>
-        // Timer countdown
+        
         var timeLeft = 600;
         var timer = document.getElementById('timer');
         var countdown = setInterval(function() {
@@ -55,14 +55,14 @@
             }
         }, 1000);
 
-        // Base64-encoded flag (IGNITE{JavaScript_Obfuscation_Fun})
+        
         var encodedFlag = "SUdOSVRFe0phdmFTY3JpcHRfT2JmdXNjYXRpb25fRnVufQ=="; 
 
         function decodeFlag() {
             return atob(encodedFlag);
         }
 
-        // Check deactivation code
+        
         function checkCode() {
             var code = document.getElementById('code').value;
             if (code === 'uifbq39uru4f248hf1i32d83') {

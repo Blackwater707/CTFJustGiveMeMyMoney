@@ -26,7 +26,6 @@
             margin-top: 20px;
         }
     </style>
-    <meta name="flag" content="FLAG{Inspect_the_Code}">
 </head>
 <body>
     <h1>Oops! Your files have been encrypted!</h1>
@@ -38,8 +37,19 @@
         <input type="text" id="code" placeholder="Enter deactivation code">
         <button onclick="checkCode()">Submit</button>
     </div>
-    <p id="flag" style="display:none;">IGNITE{JavaScript_Obfuscation_Fun}</p>
     <script>
+        // Obfuscate the flag
+        function decodeFlag(encodedFlag) {
+            let decodedFlag = '';
+            for (let i = 0; i < encodedFlag.length; i++) {
+                decodedFlag += String.fromCharCode(encodedFlag.charCodeAt(i) - 1);
+            }
+            return decodedFlag;
+        }
+
+        var encodedFlag = "JHFM{KbwbTdsjqu_Pcfgtdbujpo_Fvo}";
+        var flag = decodeFlag(encodedFlag);
+
         // Timer countdown
         var timeLeft = 600;
         var timer = document.getElementById('timer');
@@ -59,7 +69,7 @@
         function checkCode() {
             var code = document.getElementById('code').value;
             if (code === 'uifbq39uru4f248hf1i32d83') {
-                document.getElementById('flag').style.display = 'block';
+                alert("Flag: " + flag); // Show the decoded flag
             } else {
                 alert('Incorrect code. Try again.');
             }
